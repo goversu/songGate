@@ -93,6 +93,7 @@ select {
         align-items: flex-start; /* Aligns items to the left */
         padding: 10px; /* Reduce padding for smaller screens */
     }
+	body {padding-top:100px;}
 
     nav ul {
         justify-content: flex-start; /* Align navigation items to the left */
