@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0;
+    padding: 0 20px; /* Adds horizontal padding to prevent text from touching the edges */
     max-width: 800px;
     margin: auto;
     background-color: #121212;
@@ -14,13 +14,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #1f1f1f;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+    border-bottom: 1px solid #333;
 }
 
 nav {
@@ -45,6 +46,28 @@ nav ul li a {
     text-decoration: none;
     color: #e0e0e0;
     font-family: 'Courier New', Courier, monospace;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00c4ff;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #00c4ff;
+    transition: width .3s;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
 }
 
 #language-selector {
@@ -57,6 +80,7 @@ select {
     color: #e0e0e0;
     border: 1px solid #333;
     padding: 5px;
+    border-radius: 4px;
 }
 
 ol {
@@ -72,18 +96,21 @@ footer {
     background-color: #1f1f1f;
     color: #e0e0e0;
     text-align: center;
-    padding: 0px 0;
+    padding: 20px 0;
     position: relative;
     bottom: 0;
     width: 100%;
     margin-top: 50px;
+    border-top: 1px solid #333;
 }
 
 footer a {
     color: #e0e0e0;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 footer a:hover {
     text-decoration: underline;
+    color: #00c4ff;
 }
