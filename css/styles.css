@@ -21,7 +21,8 @@ header {
     left: 0;
     right: 0;
     z-index: 1000;
-    border-bottom: 1px solid #333;box-sizing: border-box;
+    border-bottom: 1px solid #333;
+    flex-wrap: wrap; /* Allows wrapping of items for smaller screens */
 }
 
 nav {
@@ -36,10 +37,11 @@ nav ul {
     display: flex;
     justify-content: flex-end;
     flex: 1;
+    flex-wrap: wrap; /* Wraps items if there isn’t enough space */
 }
 
 nav ul li {
-    margin-left: 50px;
+    margin-left: 20px;
 }
 
 nav ul li a {
@@ -72,7 +74,8 @@ nav ul li a:hover::after {
 
 #language-selector {
     color: #e0e0e0;
-    margin-left: 50px;
+    margin-left: 20px; /* Reduce margin on smaller screens */
+    flex-shrink: 0; /* Prevents it from shrinking */
 }
 
 select {
@@ -81,6 +84,24 @@ select {
     border: 1px solid #333;
     padding: 5px;
     border-radius: 4px;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; /* Stack header elements vertically on smaller screens */
+        align-items: flex-start; /* Aligns items to the left */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    nav ul {
+        justify-content: flex-start; /* Align navigation items to the left */
+        margin-top: 10px; /* Adds spacing between nav items and other header content */
+    }
+
+    #language-selector {
+        margin-top: 10px; /* Adds margin above language selector for spacing */
+    }
 }
 
 ol {
